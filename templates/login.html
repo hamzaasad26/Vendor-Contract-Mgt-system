@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Sign-Up</title>
+    <style>
+        /* General reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #05192d;
+            color: white;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .container h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #11d961;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #05192d;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            background-color: #11d961;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px #11d961;
+        }
+
+        .form-group button:hover {
+            background-color: #6f42c1;
+            box-shadow: 0 0 20px #6f42c1;
+        }
+
+        .toggle-form {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .toggle-form a {
+            color: #11d961;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-form a:hover {
+            text-decoration: underline;
+            color: #6f42c1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="login-container">
+        <h1>Login</h1>
+        <form action="/login" method="POST">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Login</button>
+            </div>
+        </form>
+        <div class="toggle-form">
+            <p>Don't have an account? <a href="#" onclick="toggleForms()">Sign up as Vendor</a></p>
+        </div>
+    </div>
+
+    <div class="container" id="signup-container" style="display: none;">
+        <h1>Vendor Sign-Up</h1>
+        <form action="/signup" method="POST">
+            <div class="form-group">
+                <label for="vendor_name">Vendor Name:</label>
+                <input type="text" id="vendor_name" name="vendor_name" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" required>
+            </div>
+            <div class="form-group">
+                <label for="contact_person">Contact Person:</label>
+                <input type="text" id="contact_person" name="contact_person" required>
+            </div>
+            <div class="form-group">
+                <label for="contact_number">Contact Number:</label>
+                <input type="text" id="contact_number" name="contact_number" required>
+            </div>
+            <div class="form-group">
+                <label for="vendor_email">Email:</label>
+                <input type="email" id="vendor_email" name="vendor_email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Sign Up</button>
+            </div>
+        </form>
+        <div class="toggle-form">
+            <p>Already have an account? <a href="#" onclick="toggleForms()">Login</a></p>
+        </div>
+    </div>
+
+    <script>
+        function toggleForms() {
+            const loginContainer = document.getElementById('login-container');
+            const signupContainer = document.getElementById('signup-container');
+            if (loginContainer.style.display === 'none') {
+                loginContainer.style.display = 'block';
+                signupContainer.style.display = 'none';
+            } else {
+                loginContainer.style.display = 'none';
+                signupContainer.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

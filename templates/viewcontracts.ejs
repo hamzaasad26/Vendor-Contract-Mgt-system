@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contracts</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom right, #ece9e6, #ffffff);
+            color: #2c3e50;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .contract-item {
+            padding: 15px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .contract-item p {
+            margin: 5px 0;
+        }
+
+        .form-container {
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: white;
+            background-color: #3498db;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <header>Contracts</header>
+    <div class="container">
+        <% if (contractList.length === 0) { %>
+            <p>No contracts available.</p>
+        <% } else { %>
+            <% contractList.forEach(contract => { %>
+                <div class="contract-item">
+                    <p><strong>Contract ID:</strong> <%= contract.contractID %></p>
+                    <p><strong>Start Date:</strong> <%= contract.startDate %></p>
+                    <p><strong>End Date:</strong> <%= contract.endDate %></p>
+                    <p><strong>Renewal Date:</strong> <%= contract.renewalDate %></p>
+                    <p><strong>Status:</strong> <%= contract.contractStatus %></p>
+                    <p><strong>Approval Status:</strong> <%= contract.approvalStatus %></p>
+                    <hr>
+                </div>
+            <% }); %>
+        <% } %>
+        <div class="form-container">
+            <form method="POST" action="/request-renewal">
+                <label for="contractID">Enter Contract ID for Renewal Request:</label>
+                <input type="text" id="contractID" name="contractID" required>
+                <button type="submit" class="btn">Request Renewal</button>
+            </form>
+        </div>
+        <a href="/dashboard" class="btn">Back to Dashboard</a>
+    </div>
+</body>
+</html>

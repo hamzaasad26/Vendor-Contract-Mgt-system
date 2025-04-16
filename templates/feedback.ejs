@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Performance Feedback</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom right, #ece9e6, #ffffff);
+            color: #2c3e50;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .feedback-item {
+            padding: 15px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .feedback-item p {
+            margin: 5px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: white;
+            background-color: #3498db;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <header>Performance Feedback</header>
+    <div class="container">
+        <% if (feedbackList.length === 0) { %>
+            <p>No feedback available.</p>
+        <% } else { %>
+            <% feedbackList.forEach(feedback => { %>
+                <div class="feedback-item">
+                    <p><strong>Vendor Name:</strong> <%= feedback.vendor_name %></p>
+                    <p><strong>Date:</strong> <%= feedback.evaluationDate %></p>
+                    <p><strong>Feedback:</strong> <%= feedback.feedback %></p>
+                    <p><strong>Rating:</strong> <%= feedback.rating %></p>
+                    <hr>
+                </div>
+            <% }); %>
+        <% } %>
+        <a href="/dashboard" class="btn">Back to Dashboard</a>
+    </div>
+</body>
+</html>

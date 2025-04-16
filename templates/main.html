@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProcureX</title>
+    <style>
+        /* General reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #05192d;
+            color: white;
+            line-height: 1.6;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #11d961;
+        }
+
+        .login-btn {
+            text-decoration: none;
+            color: white;
+            background: #11d961;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px #11d961;
+        }
+
+        .login-btn:hover {
+            background: #6f42c1;
+            color: #fff;
+            box-shadow: 0 0 20px #6f42c1;
+        }
+
+        .main-content {
+            text-align: center;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .logo-image img {
+            max-width: 100%; /* Ensures the image is responsive */
+            height: auto; /* Maintains aspect ratio */
+        }
+
+        .description-box {
+            display: inline-block;
+            padding: 20px;
+            margin: 20px;
+            background: linear-gradient(135deg, #11d961, #6f42c1);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            font-size: 1.2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .description-box:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+        }
+
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            padding: 20px;
+            background: #05192d;
+            color: #11d961;
+            border-top: 1px solid #11d961;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">ProcureX</div>
+        <a href="/login" class="login-btn">Login</a>
+    </header>
+
+    <div class="main-content">
+        <div class="logo-image">
+            <!-- Adjusted image with responsive width and aspect ratio maintained -->
+            <img src="images/logo.png" alt="ProcureX Logo">
+        </div>
+        <div class="description-box">
+            <p>ProcureX: Revolutionizing Vendor and Contract Management</p>
+        </div>
+        <div class="description-box">
+            <p>Streamline processes, ensure compliance, and drive efficiency.</p>
+        </div>
+        <div class="description-box">
+            <p>Empower your procurement decisions with intelligent insights.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 ProcureX. All Rights Reserved.</p>
+        <p>Contact us: <a href="mailto:info@procurex.com">info@procurex.com</a> | Phone: +1 (234) 567-890</p>
+    </footer>
+</body>
+</html>

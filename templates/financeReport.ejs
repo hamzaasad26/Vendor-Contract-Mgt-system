@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Financial Reports</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom right, #ece9e6, #ffffff);
+            color: #2c3e50;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #2c3e50;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <header>Financial Reports</header>
+    <div class="container">
+        <h1>Financial Reports</h1>
+        <% if (reports && reports.length > 0) { %>
+            <table>
+                <tr>
+                    <th>Department</th>
+                    <th>Vendor</th>
+                    <th>Total Spending</th>
+                </tr>
+                <% reports.forEach(function(row) { %>
+                    <tr>
+                        <td><%= row.dept_name %></td>
+                        <td><%= row.vendor_name %></td>
+                        <td><%= row.totalSpending || 0 %></td>
+                    </tr>
+                <% }); %>
+            </table>
+        <% } else { %>
+            <p>No data available for financial reports.</p>
+        <% } %>
+    </div>
+</body>
+</html>

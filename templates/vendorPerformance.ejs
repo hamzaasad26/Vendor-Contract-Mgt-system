@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vendor Performance</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom right, #ece9e6, #ffffff);
+            color: #2c3e50;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .performance-item {
+            padding: 15px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .performance-item p {
+            margin: 5px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: white;
+            background-color: #3498db;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <header>Vendor Performance</header>
+    <div class="container">
+        <h1>Vendor Performance</h1>
+        <% if (performanceList.length === 0) { %>
+            <p>No performance evaluations found.</p>
+        <% } else { %>
+            <% performanceList.forEach(performance => { %>
+                <div class="performance-item">
+                    <p><strong>Vendor Name:</strong> <%= performance.vendor_name %></p>
+                    <p><strong>Feedback:</strong> <%= performance.feedback %></p>
+                    <p><strong>Rating:</strong> <%= performance.rating %></p>
+                    <p><strong>Date:</strong> <%= performance.evaluationDate %></p>
+                </div>
+            <% }) %>
+        <% } %>
+        <a href="/dashboard?user_id=<%= user_id %>" class="btn">Back to Dashboard</a>
+    </div>
+</body>
+</html>

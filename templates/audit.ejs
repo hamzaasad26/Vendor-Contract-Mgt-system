@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Compliance and Auditing</title>
+</head>
+<body>
+    <h1>Compliance and Auditing</h1>
+
+    <h2>Bad Vendors</h2>
+    <ul>
+        <% badVendors.forEach(function(vendor) { %>
+            <li>
+                <strong>Name:</strong> <%= vendor.vendor_name %><br>
+                <strong>Address:</strong> <%= vendor.address %><br>
+                <strong>Contact Person:</strong> <%= vendor.contactPerson %><br>
+                <strong>Contact Number:</strong> <%= vendor.contactNumber %><br>
+                <strong>Rating:</strong> <%= vendor.rating %><br>
+                <strong>Compliance Status:</strong> <%= vendor.complianceStatus ? 'Compliant' : 'Non-Compliant' %><br>
+
+                <!-- Notification Form -->
+                <form action="/send-notification" method="POST">
+                    <input type="hidden" name="vendor_id" value="<%= vendor.vendorID %>">
+                    <label for="message-<%= vendor.vendorID %>">Notification Message:</label><br>
+                    <textarea id="message-<%= vendor.vendorID %>" name="message" rows="2" cols="30" placeholder="Enter your message here"></textarea><br>
+                    <button type="submit">Send Notification</button>
+                </form>
+            </li>
+        <% }); %>
+    </ul>
+
+    <h2>Good Vendors</h2>
+    <ul>
+        <% goodVendors.forEach(function(vendor) { %>
+            <li>
+                <strong>Name:</strong> <%= vendor.vendor_name %><br>
+                <strong>Address:</strong> <%= vendor.address %><br>
+                <strong>Contact Person:</strong> <%= vendor.contactPerson %><br>
+                <strong>Contact Number:</strong> <%= vendor.contactNumber %><br>
+                <strong>Rating:</strong> <%= vendor.rating %><br>
+                <strong>Compliance Status:</strong> <%= vendor.complianceStatus ? 'Compliant' : 'Non-Compliant' %><br>
+            </li>
+        <% }); %>
+    </ul>
+
+    <a href="/dashboard">Back to Dashboard</a>
+</body>
+</html>

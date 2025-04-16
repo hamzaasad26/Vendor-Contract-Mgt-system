@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vendor Dashboard</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom right, #ece9e6, #ffffff);
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #34495e;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 22px;
+            color: #7f8c8d;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .profile-card {
+            background: linear-gradient(to bottom right, #f4f4f9, #ffffff);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .profile-card p {
+            font-size: 18px;
+            margin: 10px 0;
+            color: #2c3e50;
+        }
+
+        .options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .options a {
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #3498db;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .options a:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #95a5a6;
+            font-size: 14px;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: #3498db;
+        }
+    </style>
+</head>
+<body>
+    <header>Vendor Dashboard</header>
+    <div class="container">
+        <h1>Welcome, Vendor</h1>
+        <h2>Your Profile</h2>
+        <div class="profile-card">
+            <p><strong>Vendor Name:</strong> <%= vendor.vendor_name %></p>
+            <p><strong>Address:</strong> <%= vendor.address %></p>
+            <p><strong>Contact Person:</strong> <%= vendor.contactPerson %></p>
+            <p><strong>Contact Number:</strong> <%= vendor.contactNumber %></p>
+            <p><strong>Email:</strong> <%= vendor.vendor_email %></p>
+            <p><strong>Compliance Status:</strong> <%= vendor.complianceStatus ? 'Compliant' : 'Non-compliant' %></p>
+            <p><strong>Rating:</strong> <%= vendor.rating %></p>
+        </div>
+        <div class="options">
+            <a href="/view-feedback?user_id=<%= vendor.user_id %>">View Feedback</a>
+            <a href="/view-contracts?user_id=<%= vendor.user_id %>">View Contracts</a>
+            <a href="/view-purchase-orders?user_id=<%= vendor.user_id %>">View Purchase Orders</a>
+        </div>
+    </div>
+    <footer>
+        <p>Powered by <a href="#">Your Company</a> | © 2024 All Rights Reserved</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Purchase Order</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom right, #ece9e6, #ffffff);
+            color: #2c3e50;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container {
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: white;
+            background-color: #3498db;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+
+        label {
+            display: block;
+            margin: 8px 0;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="number"] {
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+    <header>Create Purchase Order</header>
+    <div class="container">
+        <h1>Create Purchase Order</h1>
+        <form action="/submit-purchase-order" method="POST">
+            <div class="form-container">
+                <label for="vendor">Vendor:</label>
+                <select name="vendorID" required>
+                    <% vendors.forEach(function(vendor) { %>
+                        <option value="<%= vendor.vendorID %>"><%= vendor.vendor_name %></option>
+                    <% }); %>
+                </select><br>
+
+                <label for="department">Department:</label>
+                <select name="departmentID" required>
+                    <% departments.forEach(function(department) { %>
+                        <option value="<%= department.departmentID %>"><%= department.dept_name %></option>
+                    <% }); %>
+                </select><br>
+
+                <label for="itemDetails">Item Details:</label>
+                <input type="text" name="itemDetails" required><br>
+
+                <label for="quantity">Quantity:</label>
+                <input type="number" name="quantity" min="1" required><br>
+
+                <label for="costPerUnit">Cost Per Unit:</label>
+                <input type="number" name="costPerUnit" min="0.01" step="0.01" required><br>
+
+                <button type="submit" class="btn">Create PO</button>
+            </div>
+        </form>
+
+        <a href="/dashboard?user_id=<%= user_id %>" class="btn">Back to Dashboard</a>
+    </div>
+</body>
+</html>

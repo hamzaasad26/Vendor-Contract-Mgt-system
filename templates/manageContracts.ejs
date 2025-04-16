@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage Contracts</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom right, #ece9e6, #ffffff);
+            color: #2c3e50;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #2c3e50;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <header>Manage Contracts</header>
+    <div class="container">
+        <h2>Contract List</h2>
+        <% if (contracts && contracts.length > 0) { %>
+            <table>
+                <tr>
+                    <th>Contract ID</th>
+                    <th>Vendor ID</th>
+                    <th>User ID</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+                <% contracts.forEach(function(contract) { %>
+                    <tr>
+                        <td><%= contract.contractID %></td>
+                        <td><%= contract.vendorID %></td>
+                        <td><%= contract.userID %></td>
+                        <td><%= contract.startDate %></td>
+                        <td><%= contract.endDate %></td>
+                        <td><%= contract.contractStatus %></td>
+                        <td>
+                            <a href="/update-contract?contract_id=<%= contract.contractID %>" class="btn">Update</a>
+                            <form action="/delete-contract" method="POST" style="display:inline;">
+                                <input type="hidden" name="contract_id" value="<%= contract.contractID %>">
+                                <button type="submit" class="btn">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }); %>
+            </table>
+        <% } else { %>
+            <p>No contracts found for your team.</p>
+        <% } %>
+    </div>
+</body>
+</html>

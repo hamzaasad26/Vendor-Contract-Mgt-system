@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Procurement Manager Dashboard</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom right, #ece9e6, #ffffff);
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #34495e;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            text-align: center;
+            font-size: 20px;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+
+        .options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .options a {
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #3498db;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .options a:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #95a5a6;
+            font-size: 14px;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: #3498db;
+        }
+    </style>
+</head>
+<body>
+    <header>Procurement Manager Dashboard</header>
+    <div class="container">
+        <h1>Welcome, Procurement Manager of <%= manager.department %></h1>
+        <h3>Options</h3>
+        <div class="options">
+            <a href="/create-purchase-order?user_id=<%= user_id %>">Create Purchase Order</a>
+            <a href="/track-purchase-orders?user_id=<%= user_id %>">Track Purchase Orders</a>
+            <a href="/validate-budget?user_id=<%= user_id %>">Validate Budget</a>
+        </div>
+    </div>
+    <footer>
+        <p>Powered by <a href="#">Your Company</a> | © 2024 All Rights Reserved</p>
+    </footer>
+</body>
+</html>

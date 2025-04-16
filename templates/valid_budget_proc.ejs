@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validate Budget</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom right, #ece9e6, #ffffff);
+            color: #2c3e50;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .budget-details {
+            margin-top: 20px;
+        }
+
+        .budget-details p {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: white;
+            background-color: #3498db;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <header>Validate Budget</header>
+    <div class="container">
+        <h1>Budget Details</h1>
+
+        <% if (!budget) { %>
+            <p>No budget found for your department.</p>
+        <% } else { %>
+            <div class="budget-details">
+                <p><strong>Allocated Amount:</strong> <%= budget.allocatedAmount %></p>
+                <p><strong>Spent Amount:</strong> <%= budget.spentAmount %></p>
+                <p><strong>Remaining Amount:</strong> <%= budget.remainingAmount %></p>
+            </div>
+        <% } %>
+
+        <a href="/dashboard?user_id=<%= user_id %>" class="btn">Back to Dashboard</a>
+    </div>
+</body>
+</html>
